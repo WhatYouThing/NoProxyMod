@@ -110,15 +110,16 @@ public class MainScreen extends Settings {
         return new MainScreen(list, previous);
     }
 
+    @SuppressWarnings("ConstantValue")
     public static void update() {
         Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.screen instanceof MainScreen mainScreen) {
-            minecraft.execute(() -> minecraft.setScreen(MainScreen.build(mainScreen.previous)));
+        if (minecraft.gui != null && minecraft.gui.screen() instanceof MainScreen mainScreen) {
+            minecraft.execute(() -> minecraft.gui.setScreen(MainScreen.build(mainScreen.previous)));
         }
     }
 
     @Override
     public void onClose() {
-        this.minecraft.setScreen(this.previous);
+        this.minecraft.gui.setScreen(this.previous);
     }
 }

@@ -20,7 +20,7 @@ public class JoinMultiplayerScreenMixin extends Screen {
     @Final
     Button noProxyButton = Button.builder(
             Component.literal("NoProxy"),
-            _ -> this.minecraft.execute(() -> this.minecraft.setScreen(MainScreen.build(this.minecraft.screen)))
+            _ -> this.minecraft.execute(() -> this.minecraft.gui.setScreen(MainScreen.build(this.minecraft.gui.screen())))
     ).width(80).build();
 
     protected JoinMultiplayerScreenMixin(Component title) {
