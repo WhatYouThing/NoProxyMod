@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import nofrills.config.Config;
 import nofrills.hud.clickgui.Settings;
 import nofrills.hud.clickgui.components.PlainLabel;
 import nofrills.misc.RenderColor;
@@ -119,6 +120,7 @@ public class MainScreen extends Settings {
 
     @Override
     public void onClose() {
+        Config.save();
         this.minecraft.setScreen(this.previous);
     }
 }
