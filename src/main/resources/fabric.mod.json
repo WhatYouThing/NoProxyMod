@@ -1,0 +1,28 @@
+{
+    "schemaVersion": 1,
+    "id": "noproxymod",
+    "version": "${version}",
+    "name": "NoProxyMod",
+    "description": "Addon for NoFrills which implements NoProxy service functionality.",
+    "authors": [
+        "WhatYouThing"
+    ],
+    "contact": {
+        "sources": "https://github.com/WhatYouThing/NoProxyMod"
+    },
+    "license": "GPL-3.0",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "ing.whatyouth.noproxymod.NoProxy"
+        ]
+    },
+    "mixins": [
+        "noproxymod.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "nofrills": "*",
+        "minecraft": ">=${minecraft_version}"
+    }
+}
