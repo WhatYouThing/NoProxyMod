@@ -32,12 +32,12 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     implementation "io.wispforest:owo-lib:0.13.1+26.2"
-    implementation "maven.modrinth:qpZgAErQ:Tho7kTTD" // nofrills release from modrinth maven
+    implementation "maven.modrinth:qpZgAErQ:ijHVEoRB" // nofrills release from modrinth maven
 
-    implementation "io.netty:netty-handler-proxy:4.2.18.Final"
-    include "io.netty:netty-handler-proxy:4.2.18.Final"
-    implementation "io.netty:netty-codec-socks:4.2.18.Final"
-    include "io.netty:netty-codec-socks:4.2.18.Final"
+    implementation "io.netty:netty-handler-proxy:4.2.21.Final"
+    include "io.netty:netty-handler-proxy:4.2.21.Final"
+    implementation "io.netty:netty-codec-socks:4.2.21.Final"
+    include "io.netty:netty-codec-socks:4.2.21.Final"
 }
 
 processResources {

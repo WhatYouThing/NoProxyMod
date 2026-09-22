@@ -10,22 +10,24 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import nofrills.config.Config;
 import nofrills.hud.clickgui.Settings;
 import nofrills.hud.clickgui.components.PlainLabel;
 import nofrills.misc.RenderColor;
 import nofrills.misc.Rendering;
+import nofrills.misc.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class MainScreen extends Settings {
-    public static final ButtonComponent.Renderer buttonRendererGreen = (context, button, delta) -> {
+    public static final ButtonComponent.Renderer buttonRendererGreen = (context, button, _) -> {
         context.fill(button.getX(), button.getY(), button.getX() + button.getWidth(), button.getY() + button.getHeight(), 0xff101010);
-        Rendering.drawBorder(context, button.getX(), button.getY(), button.getWidth(), button.getHeight(), RenderColor.GREEN.getArgb());
+        context.outline(button.getX(), button.getY(), button.getWidth(), button.getHeight(), RenderColor.GREEN.argb());
     };
-    public static final MutableComponent connectText = Component.literal("Connect").withColor(RenderColor.WHITE.getHex());
-    public static final MutableComponent connectedText = Component.literal("Connected").withColor(RenderColor.GREEN.getHex());
+    public static final MutableComponent connectText = Component.literal("Connect").withColor(RenderColor.WHITE.hex());
+    public static final MutableComponent connectedText = Component.literal("Connected").withColor(RenderColor.GREEN.hex());
     public final Screen previous;
 
     public MainScreen(List<FlowLayout> list, Screen previous) {
@@ -39,15 +41,7 @@ public class MainScreen extends Settings {
             if (server.ping == -1) {
                 return Component.literal("Pinging...").withStyle(ChatFormatting.GRAY);
             }
-            MutableComponent text = Component.literal(server.ping + "ms");
-            if (server.ping <= 80) {
-                return text.withStyle(ChatFormatting.GREEN);
-            }
-            if (server.ping <= 160) {
-                return text.withStyle(ChatFormatting.YELLOW);
-            } else {
-                return text.withStyle(ChatFormatting.RED);
-            }
+            return Component.literal(server.ping + "ms").withColor(Utils.getPercentageColor(server.ping / 200.0).hex());
         } else {
             return Component.literal("Error").withStyle(ChatFormatting.RED);
         }
@@ -120,6 +114,7 @@ public class MainScreen extends Settings {
 
     @Override
     public void onClose() {
+        Config.save();
         this.minecraft.gui.setScreen(this.previous);
     }
 }

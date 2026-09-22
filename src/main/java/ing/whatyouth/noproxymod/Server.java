@@ -40,6 +40,7 @@ public class Server {
                 }
             } catch (Exception e) {
                 LOGGER.error("Failed to ping NoProxy server", e);
+                MainScreen.update();
             }
             this.reachable = false;
         });
