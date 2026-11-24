@@ -31,8 +31,8 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    implementation "io.wispforest:owo-lib:0.13.1+26.2"
-    implementation "maven.modrinth:qpZgAErQ:ijHVEoRB" // nofrills release from modrinth maven
+    implementation 'com.github.WhatYouThing:owo-lib:26.3-SNAPSHOT'
+    implementation "maven.modrinth:qpZgAErQ:Isy8vPlV" // nofrills release from modrinth maven
 
     implementation "io.netty:netty-handler-proxy:4.2.21.Final"
     include "io.netty:netty-handler-proxy:4.2.21.Final"

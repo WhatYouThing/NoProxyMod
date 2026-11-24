@@ -14,7 +14,6 @@ import nofrills.config.Config;
 import nofrills.hud.clickgui.Settings;
 import nofrills.hud.clickgui.components.PlainLabel;
 import nofrills.misc.RenderColor;
-import nofrills.misc.Rendering;
 import nofrills.misc.Utils;
 
 import java.util.ArrayList;
